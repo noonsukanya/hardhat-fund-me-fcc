@@ -1,5 +1,5 @@
 Arguments: 
-  /home/noon/.nvm/versions/node/v16.15.1/bin/node /home/noon/.yarn/bin/yarn.js add --dev solhint
+  /home/noon/.nvm/versions/node/v16.15.1/bin/node /home/noon/.yarn/bin/yarn.js hardhat node
 
 PATH: 
   /home/noon/.yarn/bin:/home/noon/.config/yarn/global/node_modules/.bin:/home/noon/.vscode-server/bin/64bbfbf67ada9953918d72e1df2f4d8e537d340e/bin/remote-cli:/home/noon/.yarn/bin:/home/noon/.config/yarn/global/node_modules/.bin:/home/noon/.nvm/versions/node/v16.15.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Python310/Scripts/:/mnt/c/Python310/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/nodejs/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files (x86)/Calibre2/:/mnt/c/Users/User/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/User/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/User/AppData/Roaming/npm:/snap/bin
@@ -14,7 +14,7 @@ Platform:
   linux x64
 
 Trace: 
-  SyntaxError: /home/noon/hh-fcc/hardhat-fund-me-diy/package.json: Unexpected token } in JSON at position 746
+  SyntaxError: /home/noon/hh-fcc/hardhat-fund-me-diy/package.json: Unexpected token . in JSON at position 12
       at JSON.parse (<anonymous>)
       at /home/noon/.yarn/lib/cli.js:1629:59
       at Generator.next (<anonymous>)
@@ -23,6 +23,9 @@ Trace:
 
 npm manifest: 
   {
+    "name": ."hardhat-fund-me",
+    "author": "Sukanya SS",
+    "version": "1.0.0",
     "devDependencies": {
       "@ethersproject/abi": "^5.4.7",
       "@ethersproject/providers": "^5.4.7",
@@ -39,18 +42,21 @@ npm manifest:
       "hardhat": "^2.11.2",
       "hardhat-deploy": "^0.11.18",
       "hardhat-gas-reporter": "^1.0.8",
+      "prettier": "^2.7.1",
+      "solhint": "^3.3.7",
       "solidity-coverage": "^0.8.2",
       "typechain": "^8.1.0"
     },
     "dependencies": {
-      "@chainlink/contracts": "^0.5.1",
-  
+      "@chainlink/contracts": "^0.5.1"
     },
     "scripts": {
       "test": "yarn hardhat test",
       "test:staging": "yarn hardhat test --network goerli",
       "lint": "yarn solhint 'contracts/*.sol'",
-      "lint:fix": "yarn solhint 'contracts/*.sol' --fix"
+      "lint:fix": "yarn solhint 'contracts/*.sol' --fix",
+      "format": "prettier --write .",
+      "coverage": "yarn hardhat coverage"
     }
   }
 
@@ -4137,7 +4143,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.19.1.tgz#f7d7f5ff8a9cd872a7be4ca142095956a60797cb"
     integrity sha512-s7PoyDv/II1ObgQunCbB9PdLmUcBZcnWOcxDh7O0N/UwDEsHyqkW+Qh28jW+mVuCdx7gLB0BotYI1Y6uI9iyew==
   
-  prettier@^2.3.1:
+  prettier@^2.3.1, prettier@^2.7.1:
     version "2.7.1"
     resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.7.1.tgz#e235806850d057f97bb08368a4f7d899f7760c64"
     integrity sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==
